@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Accessories Section | Balaria Clothing {% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/men.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="men-section">
+
+    <div class="men-heading">
+        <span>THE BALARIA COLLECTION</span>
+        <h1>Accessories's Collection</h1>
+    </div>
+
+    <div class="men-product-grid">
+
+        {% for product in products %}
+
+        <div class="men-product-card">
+
+            <div class="men-product-image">
+                {% if product.img %}
+                    <img src="{{ product.img.url }}" alt="{{ product.name }}">
+                {% endif %}
+            </div>
+
+            <div class="men-product-details">
+                <h3>{{ product.name }}</h3>
+
+                <p class="product-description">
+                    {{ product.description }}
+                </p>
+
+                <p class="product-price">₹{{ product.price }}</p>
+
+                <p class="product-size">
+                    Size: {{ product.size }}
+                </p>
+
+                <button type="button" class="add-cart-btn">
+                    ADD TO CART
+                </button>
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="empty-products">
+            <h3>Collection Coming Soon</h3>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

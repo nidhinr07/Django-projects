@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login | Balaria Clothing{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="login-container">
+
+    <div class="login-box">
+
+        <h2>Welcome Back</h2>
+        <p>Login to your Balaria account.</p>
+
+        <!-- Django Messages -->
+        {% if error %}
+
+        <div class="form-message error">
+            {{ error }}
+        </div>
+
+        {% endif %}
+
+        <!-- Login Form -->
+        <form method="POST" action="">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+
+            <button type="submit" class="login-btn">
+                LOG IN
+            </button>
+
+        </form>
+
+        <div class="register-link">
+            Don't have an account?
+            <a href="/register/">Create Account</a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

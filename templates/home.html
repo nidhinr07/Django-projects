@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home Page | Balaria Clothing {% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="home-hero">
+    <div class="hero-content">
+        <span class="hero-label">NEW COLLECTION 2026</span>
+        <h1>Elegance is<br>an Attitude.</h1>
+        <p>Discover a new expression of style with collections
+            designed for modern living.</p>
+        <a href="#" class="home-btn">EXPLORE COLLECTION <i class="bi bi-arrow-right"></i></a>
+    </div>
+</section>
+
+<!-- Shop by Category -->
+<section class="home-categories">
+    <div class="home-heading">
+        <span>CURATED FOR YOU</span>
+        <h2>Explore Our Collections</h2>
+        <p>Find your style. Make it yours.</p>
+    </div>
+
+    <div class="home-category-grid">
+
+        <a href="#" class="home-category">
+            <img src="{% static 'img/women.jpg' %}"
+                alt="Women's collection">
+            <div class="home-category-info">
+                <span>01 / COLLECTION</span>
+                <h3>Women's Wear</h3>
+                <p>DISCOVER <i class="bi bi-arrow-right"></i></p>
+            </div>
+        </a>
+
+        <a href="#" class="home-category">
+            <img src="{% static 'img/men.jpg' %}"
+                alt="Men's collection">
+            <div class="home-category-info">
+                <span>02 / COLLECTION</span>
+                <h3>Men's Wear</h3>
+                <p>DISCOVER <i class="bi bi-arrow-right"></i></p>
+            </div>
+        </a>
+
+        <a href="#" class="home-category">
+            <img src="{% static 'img/fashion.jpg' %}"
+                alt="Accessories collection">
+            <div class="home-category-info">
+                <span>03 / COLLECTION</span>
+                <h3>Accessories</h3>
+                <p>DISCOVER <i class="bi bi-arrow-right"></i></p>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<!-- Brand Story -->
+<section class="home-story">
+    <div class="home-story-image">
+        <img src="{% static 'img/left.jpg' %}"
+            alt="Fashion collection">
+    </div>
+
+    <div class="home-story-content">
+        <span>THE STORY BEHIND THE STYLE</span>
+        <h2>Fashion that<br>feels like you.</h2>
+        <p>
+            Style is more than what you wear. It is how you express
+            yourself. We bring together carefully selected styles
+            that combine comfort, confidence and timeless elegance.
+        </p>
+        <a href="#" class="home-text-link">DISCOVER MORE <i class="bi bi-arrow-right"></i></a>
+    </div>
+</section>
+
+<!-- New Season Banner -->
+<section class="home-season">
+    <div class="home-season-content">
+        <span>THE LATEST EDIT</span>
+        <h2>Redefine Your<br>Everyday Style.</h2>
+        <p>New season. Fresh inspiration. Your next favourite look.</p>
+        <a href="#" class="home-btn home-btn-light">EXPLORE NEW ARRIVALS</a>
+    </div>
+</section>
+
+<!-- Shopping Benefits -->
+<section class="home-benefits">
+    <div class="home-heading">
+        <span>SHOP WITH CONFIDENCE</span>
+        <h2>The Experience You Deserve</h2>
+    </div>
+
+    <div class="home-benefit-grid">
+
+        <div class="home-benefit">
+            <i class="bi bi-truck"></i>
+            <h3>Free Shipping</h3>
+            <p>Enjoy convenient delivery on eligible orders.</p>
+        </div>
+
+        <div class="home-benefit">
+            <i class="bi bi-shield-check"></i>
+            <h3>Secure Payments</h3>
+            <p>Shop confidently with secure payment options.</p>
+        </div>
+
+        <div class="home-benefit">
+            <i class="bi bi-arrow-repeat"></i>
+            <h3>Easy Returns</h3>
+            <p>A simple and hassle-free return experience.</p>
+        </div>
+
+        <div class="home-benefit">
+            <i class="bi bi-headset"></i>
+            <h3>Customer Support</h3>
+            <p>We're always here to help you.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Newsletter -->
+<section class="home-newsletter">
+    <span>STAY CONNECTED</span>
+    <h2>Style Updates, Delivered.</h2>
+    <p>Be the first to discover new collections and exclusive offers.</p>
+
+    <form class="home-newsletter-form">
+        <input type="email" placeholder="Your email address">
+        <button type="submit">SUBSCRIBE <i class="bi bi-arrow-right"></i></button>
+    </form>
+</section>
+
+
+
+{% endblock %}

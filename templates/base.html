@@ -1,0 +1,417 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Balaria Clothing{% endblock %}</title>
+
+    <!-- Bootstrap Icons only -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    {% block styles %}{% endblock %}
+</head>
+
+<body>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement-bar">
+        FREE SHIPPING ON ORDERS ABOVE ₹999
+        <span>|</span>
+        EXPLORE OUR NEW COLLECTION
+    </div>
+
+
+    <!-- HEADER -->
+    <header class="main-header">
+
+        <div class="header-inner">
+
+            <!-- MOBILE MENU BUTTON -->
+            <button class="mobile-menu-btn" id="menuToggle"
+                    type="button" aria-label="Open menu"
+                    aria-expanded="false">
+                <i class="bi bi-list"></i>
+            </button>
+
+
+            <!-- LOGO -->
+            <a href="/" class="brand-logo">
+                Balaria Clothing<span>.</span>
+            </a>
+
+
+            <!-- DESKTOP NAVIGATION -->
+            <nav class="desktop-navigation">
+                <a href="/">HOME</a>
+                <a href="/men/">MEN</a>
+                <a href="/women/">WOMEN</a>
+                <a href="/accessories/">ACCESSORIES</a>
+                <a href="/collections/">COLLECTIONS</a>
+            </nav>
+
+
+            <!-- SEARCH -->
+            <form class="header-search" method="GET" action="#">
+                <input type="search"
+                       name="q"
+                       placeholder="Search dresses, shirts..."
+                       aria-label="Search products">
+
+                <button type="submit" aria-label="Search">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+
+
+            <!-- HEADER ACTIONS -->
+            <div class="header-actions">
+
+                <button type="button"
+                        class="header-icon"
+                        data-open-modal="profileModal"
+                        aria-label="My account">
+                    <i class="bi bi-person"></i>
+                </button>
+
+                <a href="#" class="header-icon" aria-label="Shopping cart">
+                    <i class="bi bi-bag"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- MOBILE MENU -->
+        <nav class="mobile-menu" id="mobileMenu">
+
+            <a href="/">Home</a>
+            <a href="#">Women</a>
+            <a href="#">Men</a>
+            <a href="#">New Arrivals</a>
+            <a href="#">Collections</a>
+
+            <div class="mobile-menu-divider"></div>
+
+            <button type="button" data-open-modal="profileModal">
+                <i class="bi bi-person"></i>
+                My Account
+            </button>
+
+            <a href="#">
+                <i class="bi bi-bag"></i>
+                Shopping Cart
+            </a>
+
+        </nav>
+
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <main class="page-content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+
+        <!-- <div class="footer-newsletter">
+
+            <div class="newsletter-text">
+                <span class="footer-small-heading">STAY IN THE KNOW</span>
+
+                <h2>
+                    Something beautiful<br>
+                    is on its way.
+                </h2>
+
+                <p>
+                    Subscribe to receive updates on new arrivals,
+                    exclusive collections and special offers.
+                </p>
+            </div>
+
+            <form class="newsletter-form" method="POST" action="#">
+                {% csrf_token %}
+
+                <div class="newsletter-input">
+                    <input type="email"
+                           name="email"
+                           placeholder="Enter your email address"
+                           required>
+
+                    <button type="submit">
+                        SUBSCRIBE
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+
+                <small>Subscribe for the latest updates.</small>
+            </form>
+
+        </div> -->
+
+
+        <!-- <div class="footer-divider"></div> -->
+
+
+        <!-- FOOTER LINKS -->
+        <div class="footer-links">
+
+            <div class="footer-brand">
+                <a href="/" class="footer-logo">
+                    Balaria Clothing<span>.</span>
+                </a>
+
+                <p>
+                    A modern expression of timeless style.
+                    Discover thoughtfully curated fashion
+                    designed to make every moment memorable.
+                </p>
+
+                <div class="footer-social-links">
+                    <a href="#" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="#" aria-label="Pinterest">
+                        <i class="bi bi-pinterest"></i>
+                    </a>
+
+                    <a href="#" aria-label="YouTube">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="footer-column">
+                <h3>SHOP</h3>
+                <a href="#">Women</a>
+                <a href="#">Men</a>
+                <a href="#">New Arrivals</a>
+                <a href="#">Best Sellers</a>
+                <a href="#">Sale</a>
+            </div>
+
+
+            <div class="footer-column">
+                <h3>HELP & SUPPORT</h3>
+                <a href="#">Contact Us</a>
+                <a href="#">FAQs</a>
+                <a href="#">Shipping Information</a>
+                <a href="#">Returns & Exchanges</a>
+                <a href="#">Track Your Order</a>
+            </div>
+
+
+            <div class="footer-column">
+                <h3>ABOUT</h3>
+                <a href="#">Our Story</a>
+                <a href="#">Careers</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+
+
+            <div class="footer-column">
+                <h3>GET IN TOUCH</h3>
+                <a href="mailto:support@example.com">Email Us</a>
+                <a href="#">Customer Service</a>
+                <p>We're here to help you find your style.</p>
+            </div>
+
+        </div>
+
+
+        <div class="footer-divider"></div>
+
+
+        <!-- FOOTER BOTTOM -->
+        <div class="footer-bottom">
+
+            <p>© 2026 Balaria Clothing. All rights reserved.</p>
+
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Cookies</a>
+            </div>
+
+            <div class="payment-methods">
+                <i class="bi bi-credit-card"></i>
+                <i class="bi bi-paypal"></i>
+                <i class="bi bi-wallet2"></i>
+                <i class="bi bi-cash-stack"></i>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ACCOUNT POPUP -->
+    <div class="luxury-modal" id="profileModal">
+
+        <div class="luxury-modal-content">
+
+            <button type="button" class="modal-close"
+                    aria-label="Close popup">
+                &times;
+            </button>
+
+            <div class="guest-avatar">
+                <i class="bi bi-person"></i>
+            </div>
+
+            <span class="modal-label">YOUR ACCOUNT</span>
+
+
+            {% if user.is_authenticated %}
+
+                <!-- LOGGED-IN USER -->
+                <h2>Welcome Back!</h2>
+
+                <div class="user-details">
+
+                    <div class="user-detail">
+                        <span>Username</span>
+                        <p>{{ user.username }}</p>
+                    </div>
+
+                    <div class="user-detail">
+                        <span>Email Address</span>
+                        <p>{{ user.email|default:"Not provided" }}</p>
+                    </div>
+
+                </div>
+
+                <form method="POST" action="/logout/">
+                    {% csrf_token %}
+
+                    <button type="submit" class="modal-btn logout-btn">
+                        LOG OUT
+                    </button>
+                </form>
+
+            {% else %}
+
+                <!-- GUEST USER -->
+                <h2>Welcome to Balaria</h2>
+
+                <p class="modal-description">
+                    Discover timeless fashion and enjoy a
+                    personalised shopping experience.
+                    Sign in or create an account to get started.
+                </p>
+
+                <div class="account-buttons">
+
+                    <a href="/login/" class="modal-btn">
+                        LOGIN
+                    </a>
+
+                    <a href="/register/" class="modal-outline-btn">
+                        REGISTER
+                    </a>
+
+                </div>
+
+            {% endif %}
+
+            <p class="account-note">
+                Your style journey begins here.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- MAIN JAVASCRIPT -->
+    <script>
+
+        // MOBILE MENU
+        const menuToggle = document.getElementById("menuToggle");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        menuToggle.addEventListener("click", function () {
+
+            mobileMenu.classList.toggle("active");
+
+            const isOpen = mobileMenu.classList.contains("active");
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.querySelector("i").className =
+                isOpen ? "bi bi-x-lg" : "bi bi-list";
+
+        });
+
+
+        // ACCOUNT POPUP
+        const accountModal = document.getElementById("profileModal");
+
+        document.querySelectorAll("[data-open-modal]").forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                accountModal.classList.add("active");
+                mobileMenu.classList.remove("active");
+
+            });
+
+        });
+
+
+        // CLOSE POPUP
+        function closeAccountModal() {
+            accountModal.classList.remove("active");
+        }
+
+        document.querySelector(".modal-close").addEventListener(
+            "click", closeAccountModal
+        );
+
+
+        // CLICK OUTSIDE POPUP
+        accountModal.addEventListener("click", function (event) {
+
+            if (event.target === accountModal) {
+                closeAccountModal();
+            }
+
+        });
+
+
+        // ESCAPE KEY
+        document.addEventListener("keydown", function (event) {
+
+            if (event.key === "Escape") {
+                closeAccountModal();
+                mobileMenu.classList.remove("active");
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
