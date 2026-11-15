@@ -1,7 +1,7 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
-from .models import Product,Categorie
+from .models import Product,Categorie,Cart
 
 # Create your views here.
 
@@ -58,3 +58,23 @@ def womenpage(request):
 def accessoriepage(request):
     products=Product.objects.filter(categorie_id=3)
     return render(request,'accessories.html',{'products':products})
+
+def collectionpage(request):
+    products=Product.objects.all()
+    return render(request,'collections.html',{'products':products})
+    
+def cartpage(request,pk):
+    products=Cart.objects.filter(user_id=pk)
+    return render(request,'cart.html',{'products':products})
+
+def addtocartpage(request,pk):
+    product=Product.objects.get(id=pk)
+    Cart.objects.create(user=request.user,name=product.name,price=product.price,description=product.description,img=product.img,categorie=product.categorie,size=product.size)
+    products=Cart.objects.filter(user_id=request.user.id)
+    return render(request,'cart.html',{'products':products})
+
+def deletecart(request, pk):
+    if request.method == "POST":
+        Cart.objects.filter(id=pk, user=request.user).delete()
+
+    return redirect('/cart/' + str(request.user.id) + '/')

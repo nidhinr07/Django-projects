@@ -14,6 +14,10 @@ urlpatterns = [
     path('men/',menpage),
     path('women/',womenpage),
     path('accessories/',accessoriepage),
+    path('collections/',collectionpage),
+    path('cart/<int:pk>/',cartpage),
+    path('addtocart/<int:pk>/',addtocartpage),
+    path('deletecart/<int:pk>/',deletecart),
 ]
 
 if settings.DEBUG:

@@ -24,7 +24,7 @@
 
             <div class="men-product-image">
                 {% if product.img %}
-                    <img src="{{ product.img.url }}" alt="{{ product.name }}">
+                <img src="{{ product.img.url }}" alt="{{ product.name }}">
                 {% endif %}
             </div>
 
@@ -40,10 +40,14 @@
                 <p class="product-size">
                     Size: {{ product.size }}
                 </p>
+                {% if user.is_authenticated %}
+                <a href="/addtocart/{{product.id}}/">
 
-                <button type="button" class="add-cart-btn">
-                    ADD TO CART
-                </button>
+                    <button type="button" class="add-cart-btn">
+                        ADD TO CART
+                    </button>
+                </a>
+                {% endif %}
             </div>
 
         </div>

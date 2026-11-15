@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}My Cart | Balaria Clothing{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="cart-section">
+
+    <div class="cart-heading">
+        <span>THE BALARIA COLLECTION</span>
+        <h1>My Shopping Cart</h1>
+    </div>
+
+    <div class="cart-products">
+
+        {% for product in products %}
+
+        <div class="cart-product-card">
+
+            <div class="cart-product-image">
+                {% if product.img %}
+                <img src="{{ product.img.url }}" alt="{{ product.name }}">
+                {% endif %}
+            </div>
+
+            <div class="cart-product-details">
+
+                <h2>{{ product.name }}</h2>
+
+                <p class="cart-description">
+                    {{ product.description }}
+                </p>
+
+                <p class="cart-size">
+                    Size: {{ product.size }}
+                </p>
+
+                <p class="cart-price">
+                    ₹{{ product.price }}
+                </p>
+
+                <form method="POST" action="/deletecart/{{ product.id }}/">
+                    {% csrf_token %}
+                    <button type="submit" class="delete-cart-btn">DELETE</button>
+                </form>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="empty-cart">
+            <h2>Your Cart is Empty</h2>
+            <p>You haven't added any products to your cart yet.</p>
+
+            <a href="/" class="continue-shopping">
+                CONTINUE SHOPPING
+            </a>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% if products %}
+    <div class="cart-footer">
+        <a href="/" class="continue-shopping">
+            CONTINUE SHOPPING
+        </a>
+    </div>
+    {% endif %}
+
+</section>
+
+{% endblock %}

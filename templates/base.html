@@ -84,11 +84,11 @@
                         aria-label="My account">
                     <i class="bi bi-person"></i>
                 </button>
-
-                <a href="#" class="header-icon" aria-label="Shopping cart">
+                {% if user.is_authenticated %}
+                <a href="/cart/{{user.id}}" class="header-icon" aria-label="Shopping cart">
                     <i class="bi bi-bag"></i>
                 </a>
-
+                {% endif %}
             </div>
 
         </div>
@@ -109,11 +109,12 @@
                 <i class="bi bi-person"></i>
                 My Account
             </button>
-
+            {% if user.is_authenticated %}
             <a href="#">
                 <i class="bi bi-bag"></i>
                 Shopping Cart
-            </a>
+            </a>    
+            {% endif %}
 
         </nav>
 
@@ -205,11 +206,8 @@
 
             <div class="footer-column">
                 <h3>SHOP</h3>
-                <a href="#">Women</a>
-                <a href="#">Men</a>
-                <a href="#">New Arrivals</a>
-                <a href="#">Best Sellers</a>
-                <a href="#">Sale</a>
+                <a href="/women/">Women</a>
+                <a href="/men/">Men</a>
             </div>
 
 
